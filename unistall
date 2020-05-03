@@ -1,0 +1,8 @@
+#!/bin/sh
+
+docker-compose down
+sudo rm -rf mysql src .env
+echo 'Removing files...'
+docker rm $(docker ps -qa) 2> /dev/null
+docker rmi $(docker images -qa) -f 2> /dev/null
+echo 'Done.'
